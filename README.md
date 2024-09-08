@@ -94,7 +94,8 @@ public class ApplicationDbContext : DbContext
 
 
 
-•	Now you can check your table in Database
+8.	Now you can check your table in Database
+
 
 ![](https://github.com/arpitsdotnet/EFCoreExample/blob/master/assets/images/2024-09-07%20(4).png)
 
