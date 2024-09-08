@@ -3,13 +3,13 @@
 While working with the EF-Core Code-First approach, we create the classes for our domain entities first. Later, we create the database from our code by using migrations. This is the opposite of Data-First approach where we design our database first and then create the classes which match our database design.
 
 ## How Does It Work?
-•	**Model First:** First we create a class where we write properties as columns of a data table.
-•	**Database Linked Instance:** A `DbSet<TEntity>` can be used to query and save instances of our Model. LINQ queries against a `DbSet<TEntity>` will be translated into queries against the database.
-•	**Seed Data:** When you want your data-table prefilled with data, `OnModelCreating` override method is required.
-•	**Adding the Migration:** Using Terminal we can add or update our migrations from classes to database.
+-	**Model First:** First we create a class where we write properties as columns of a data table.
+-	**Database Linked Instance:** A `DbSet<TEntity>` can be used to query and save instances of our Model. LINQ queries against a `DbSet<TEntity>` will be translated into queries against the database.
+-	**Seed Data:** When you want your data-table prefilled with data, `OnModelCreating` override method is required.
+-	**Adding the Migration:** Using Terminal we can add or update our migrations from classes to database.
 
 ## Example
-•	Add a Database Connection into your project’s `Program.cs` file, you can define your connection string in `appsettings.json` file
+1.	Add a Database Connection into your project’s `Program.cs` file, you can define your connection string in `appsettings.json` file
 
 ```
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +21,7 @@ var app = builder.Build();
 app.Run();
 ```
 
-•	Create your Model with getter and setter properties
+2.	Create your Model with getter and setter properties
 
 ```
 public class Category
@@ -39,7 +39,7 @@ public class Category
 `[Key]` attribute will indicate the EF-Core to create the field with identity key and primary key constraints.
 `[Required]` attribute will make the field required and Not-Null field.
 
-•	Create ApplicationDbContext class to manage DbContext entities
+3.	Create ApplicationDbContext class to manage DbContext entities
 
 ```
 public class ApplicationDbContext : DbContext
@@ -53,7 +53,7 @@ public class ApplicationDbContext : DbContext
 }
 ```
 
-•	To add seed data prefilled into your `Category` table
+4.	To add seed data prefilled into your `Category` table
 
 ```
 public class ApplicationDbContext : DbContext
@@ -75,12 +75,12 @@ public class ApplicationDbContext : DbContext
 }
 ```
 
-•	To open a **Package Manager Console**, Go to **Tools > NuGet Package Manager > Package Manager Console**
+5.	To open a **Package Manager Console**, Go to **Tools > NuGet Package Manager > Package Manager Console**
 
 ![](https://github.com/arpitsdotnet/EFCoreExample/blob/master/assets/images/2024-09-07%20(1).png)
 
 
-•	When **Package Manage Console** tab opened; type `add-migration <migration_name>`, this will create a `migration_name.cs` file which you can assess to check if correct table is being created.
+6.	When **Package Manage Console** tab opened; type `add-migration <migration_name>`, this will create a `migration_name.cs` file which you can assess to check if correct table is being created.
 
 > [!TIP]
 > If the above comment throws error; Make sure you have a package installed `Microsoft.EntityFrameworkCore.Tools`
@@ -88,9 +88,10 @@ public class ApplicationDbContext : DbContext
 ![](https://github.com/arpitsdotnet/EFCoreExample/blob/master/assets/images/2024-09-07%20(2).png)
 
 
-•	To reflect all changes to database; type `update-database`.
+7.	To reflect all changes to database; type `update-database`.
 
 ![](https://github.com/arpitsdotnet/EFCoreExample/blob/master/assets/images/2024-09-07%20(3).png)
+
 
 
 •	Now you can check your table in Database
