@@ -18,6 +18,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
+
 app.Run();
 ```
 
@@ -63,7 +64,8 @@ public class ApplicationDbContext : DbContext
     {
     }
 
-    public DbSet<Category> Categories { get; set; } 
+    public DbSet<Category> Categories { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Category>().HasData(
