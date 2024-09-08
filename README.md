@@ -76,13 +76,23 @@ public class ApplicationDbContext : DbContext
 ```
 
 •	To open a **Package Manager Console**, Go to **Tools > NuGet Package Manager > Package Manager Console**
- 
+
+![](https://github.com/arpitsdotnet/EFCoreExample/blob/master/assets/images/2024-09-07%20(1).png)
+
+
 •	When **Package Manage Console** tab opened; type `add-migration <migration_name>`, this will create a `migration_name.cs` file which you can assess to check if correct table is being created.
- 
+
+![](https://github.com/arpitsdotnet/EFCoreExample/blob/master/assets/images/2024-09-07%20(2).png)
+
+
 •	If the above comment throws error; Make sure you have a package installed `Microsoft.EntityFrameworkCore.Tools`
 
 •	To reflect all changes to database; type `update-database`.
 
- 
+![](https://github.com/arpitsdotnet/EFCoreExample/blob/master/assets/images/2024-09-07%20(3).png)
+
+
 •	Now you can check your table in Database
- 
+
+![](https://github.com/arpitsdotnet/EFCoreExample/blob/master/assets/images/2024-09-07%20(4).png)
+
