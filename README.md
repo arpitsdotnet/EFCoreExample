@@ -9,7 +9,9 @@ While working with the EF-Core Code-First approach, we create the classes for ou
 -	**Adding the Migration:** Using Terminal we can add or update our migrations from classes to database.
 
 ## Example
-1.	Add a Database Connection into your project’s `Program.cs` file, you can define your connection string in `appsettings.json` file
+
+### Program.cs
+Add a Database Connection into your project’s `Program.cs` file, you can define your connection string in `appsettings.json` file
 
 ```
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +24,8 @@ var app = builder.Build();
 app.Run();
 ```
 
-2.	Create your Model with getter and setter properties
+### Category Model
+Create your Model with getter and setter properties
 
 ```
 public class Category
@@ -40,7 +43,8 @@ public class Category
 `[Key]` attribute will indicate the EF-Core to create the field with identity key and primary key constraints.
 `[Required]` attribute will make the field required and Not-Null field.
 
-3.	Create ApplicationDbContext class to manage DbContext entities
+### ApplicationDbContext
+Create ApplicationDbContext class to manage DbContext entities
 
 ```
 public class ApplicationDbContext : DbContext
@@ -54,7 +58,8 @@ public class ApplicationDbContext : DbContext
 }
 ```
 
-4.	To add seed data prefilled into your `Category` table
+### OnModelCreating (Optional)
+To add seed data prefilled into your `Category` table
 
 ```
 public class ApplicationDbContext : DbContext
@@ -77,11 +82,13 @@ public class ApplicationDbContext : DbContext
 }
 ```
 
-5.	To open a **Package Manager Console**, Go to **Tools > NuGet Package Manager > Package Manager Console**
+### Package Manager Console
+To open a **Package Manager Console**, Go to **Tools > NuGet Package Manager > Package Manager Console**
 
 ![](https://github.com/arpitsdotnet/EFCoreExample/blob/master/assets/images/2024-09-07%20(1).png)
 
 
+### Add-Migration
 6.	When **Package Manage Console** tab opened; type `add-migration <migration_name>`, this will create a `migration_name.cs` file which you can assess to check if correct table is being created.
 
 > [!TIP]
@@ -90,12 +97,13 @@ public class ApplicationDbContext : DbContext
 ![](https://github.com/arpitsdotnet/EFCoreExample/blob/master/assets/images/2024-09-07%20(2).png)
 
 
+### Update-Database
 7.	To reflect all changes to database; type `update-database`.
 
 ![](https://github.com/arpitsdotnet/EFCoreExample/blob/master/assets/images/2024-09-07%20(3).png)
 
 
-
+### Output
 8.	Now you can check your table in Database
 
 
